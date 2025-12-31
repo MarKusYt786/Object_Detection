@@ -1,0 +1,61 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #e0f7fa;
+    font-family: 'Arial', sans-serif;
+    overflow: hidden;
+    transition: background-color 0.3s ease;
+}
+
+body:hover {
+    background-color: #b2ebf2;
+}
+
+video, canvas {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 2px solid #00796b;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+video:hover, canvas:hover {
+    border-color: #004d40;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+canvas {
+    z-index: 1;
+}
+
+video {
+    z-index: 0;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes scaleUp {
+    from {
+        transform: scale(0.8);
+    }
+    to {
+        transform: scale(1);
+    }
+}
+
+video, canvas {
+    animation: fadeIn 1s ease-in-out, scaleUp 0.5s ease-in-out;
+}
